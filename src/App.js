@@ -24,6 +24,12 @@ import Couponlist from "./pages/Couponlist";
 import AddCoupon from "./pages/AddCoupon";
 import ViewEnq from "./pages/ViewEnq";
 import ViewOrder from "./pages/ViewOrder";
+import Addstudent from "./pages/Addstudent";
+import Addinstructor from "./pages/Addinstructor";
+import Addstaff from "./pages/Addstaff";
+import ListStudent from "./pages/ListStudent";
+import Listinstructor from './pages/Listinstructor';
+import Liststaff from "./pages/Liststaff";
 function App() {
   return (
     <Router>
@@ -58,6 +64,23 @@ function App() {
           <Route path="brand/:id" element={<Addbrand />} />
           <Route path="list-product" element={<Productlist />} />
           <Route path="product" element={<Addproduct />} />
+
+          {/* student */}
+          <Route path="list-student" element={<ListStudent />} />
+          <Route path="student" element={<Addstudent />} />
+
+
+          {/* instructor */}
+
+          <Route path="instructor" element={<Addinstructor />} />
+          <Route path="list-instructor" element={<Listinstructor />} />
+
+          {/* staff */}
+
+          <Route path="stafs" element={<Addstaff />} />
+          <Route path="list-stafs" element={<Liststaff />} />
+
+
         </Route>
       </Routes>
     </Router>

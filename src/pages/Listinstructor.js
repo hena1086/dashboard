@@ -1,6 +1,4 @@
-// Show applicants list
-// import modules
-import React from "react";
+import React from 'react'
 import axios from "axios";
 import { useState, useEffect } from "react";
 import {Link}  from "react-router-dom";
@@ -8,15 +6,12 @@ import {useParams, useNavigate} from 'react-router-dom'
 import "./table.css";
 import { func } from "prop-types";
 import { any } from "prop-types";
-
-
-function Productlist() {
-
+const Listinstructor = () => {
 
   const [applicants, setApplicants] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/ss/list-staff")
+      .get("http://localhost:8080/api/inst/list-instructor")
       .then((res) => {
         setApplicants(res.data);
       })
@@ -59,26 +54,8 @@ function Productlist() {
 //     }
 // }
   const navigate = useNavigate()
-const onClickDelete=(id)=>{
-     axios.delete(`http://localhost:4000/api/delete-staff/${id}`)
-     .then((res=>{
-      navigate('/')
-     }))
-    .catch((err)=>{
-      console.log('error to delete data:'+err.message);
-    });
-     
-};
-const onClickDeletes=()=>{
-  axios.db.drop(`http://localhost:8080/api/list-staff`)
-  .then((res=>{
-   navigate('/list-applicant')
-  }))
- .catch((err)=>{
-   console.log('error to delete data:'+err.message);
- });
-  
-};
+
+
 
 // function OnClickDeleteAllData(id){
 
@@ -256,6 +233,6 @@ let n=1;
        
       </div></>
   );
-  
-}
-export default Productlist;
+            }
+
+export default Listinstructor;

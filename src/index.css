@@ -11,7 +11,7 @@ body {
 }
 
 .trigger:hover {
-  color: #1890ff;
+  color: #a35f05;
 }
 
 .logo {
@@ -45,7 +45,7 @@ body {
   display: none;
 }
 .logo {
-  background-color: #ffd333;
+  background-color: #b95809b1;
   margin: 0;
   height: 64px;
 }
@@ -59,6 +59,7 @@ main::-webkit-scrollbar {
 }
 .ant-menu-title-content {
   font-size: 16px;
+ 
 }
 .ant-layout-header h5 {
   line-height: 20px;

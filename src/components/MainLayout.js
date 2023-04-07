@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import {
-  AiOutlineDashboard,
+  AiOutlineHome,
   AiOutlineShoppingCart,
   AiOutlineUser,
   AiOutlineBgColors,
@@ -12,12 +12,17 @@ import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { ImBlog } from "react-icons/im";
+import { RiVideoAddFill } from 'react-icons/ri';
+import {BsCollectionFill } from 'react-icons/bs';
 import { IoIosNotifications } from "react-icons/io";
 import { FaClipboardList, FaBloggerB } from "react-icons/fa";
-import { SiBrandfolder } from "react-icons/si";
-import { BiCategoryAlt } from "react-icons/bi";
+import { SiBrandfolder, SiLibrarything} from "react-icons/si";
+import { BiCategoryAlt,BiBookAdd } from "react-icons/bi";
 import { Layout, Menu, theme } from "antd";
 import { useNavigate } from "react-router-dom";
+import {HiUsers,HiOutlineUserGroup, HiOutlineUserAdd} from 'react-icons/hi';
+import {GiTeacher,GiButtonFinger} from 'react-icons/gi';
+import { TbHandFinger } from 'react-icons/tb';
 const { Header, Sider, Content } = Layout;
 const MainLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -30,8 +35,8 @@ const MainLayout = () => {
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo">
           <h2 className="text-white fs-5 text-center py-3 mb-0">
-            <span className="sm-logo">DC</span>
-            <span className="lg-logo">Dev Corner</span>
+            <span className="sm-logo">Sage</span>
+            <span className="lg-logo">Sage Training Institute</span>
           </h2>
         </div>
         <Menu
@@ -39,22 +44,188 @@ const MainLayout = () => {
           mode="inline"
           defaultSelectedKeys={[""]}
           onClick={({ key }) => {
-            if (key == "signout") {
+            if (key === "signout") {
             } else {
               navigate(key);
+              
             }
           }}
           items={[
             {
               key: "",
-              icon: <AiOutlineDashboard className="fs-4" />,
+              icon: <AiOutlineHome className="fs-4" />,
               label: "Dashboard",
+              primaryColor: '#dcfd',
             },
+            //student page start
             {
-              key: "customers",
-              icon: <AiOutlineUser className="fs-4" />,
-              label: "Customers",
+              key: "Students",
+              icon: <HiOutlineUserGroup className="fs-4" />,
+              label: "Students",
+              children: [
+                {
+                  key: "student",
+                  icon: <HiOutlineUserAdd className="fs-4" />,
+                  label: "Add Student",
+                },
+                {
+                  key: "list-student",
+                  icon: <HiOutlineUserGroup className="fs-4" />,
+                  label: "Students List",
+                },
+                
+              ],
             },
+            //student page end
+
+            //Instructor start
+           
+            {
+              key: "Instructors",
+              icon: <GiTeacher className="fs-4" />,
+              label: "Instructors",
+              children: [
+                {
+                  key: "instructor",
+                  icon: <GiTeacher className="fs-4" />,
+                  label: "Add Instructor",
+                },
+                {
+                  key: "list-instructor",
+                  icon: <GiTeacher className="fs-4" />,
+                  label: "Instructors List",
+                },
+                
+              ],
+            },
+           
+            //instructor end
+
+            //staff start
+            {
+              key: "Staff",
+              icon: <HiUsers className="fs-4" />,
+              label: "Staff Users",
+              children: [
+                {
+                  key: "stafs",
+                  icon: <AiOutlineUser className="fs-4" />,
+                  label: "Add Staffs",
+                },
+
+                {
+                  key: "list-stafs",
+                  icon: <AiOutlineUser className="fs-4" />,
+                  label: "View Staffs",
+                },
+
+              ],
+            },
+            //staff end
+
+            //course start
+
+            {
+              key: "Course",
+              icon: <BiBookAdd className="fs-4" />,
+              label: "Courses",
+              children: [
+                {
+                  key: "Course",
+                  icon: <BiBookAdd className="fs-4" />,
+                  label: "Add Courses",
+                },
+
+                {
+                  key: "View Courses",
+                  icon: <BiBookAdd className="fs-4" />,
+                  label: "View Courses",
+                },
+
+              ],
+            },
+
+            //course end
+
+            //Attendance end
+
+            {
+              key: "Attendances",
+              icon: <GiButtonFinger className="fs-4" />,
+              label: "Attendances",
+              children: [
+                {
+                  key: "student-attendance",
+                  icon: <TbHandFinger className="fs-4" />,
+                  label: "Student Attendance",
+                },
+
+                {
+                  key: "instructor-attendance",
+                  icon: <TbHandFinger className="fs-4" />,
+                  label: "Instructor-attendance",
+                },
+                {
+                  key: "staff-attendance",
+                  icon: <TbHandFinger className="fs-4" />,
+                  label: "Staff-attendance",
+                },
+
+              ],
+            },
+
+            //Attendance end
+
+            //e-Library start
+
+            {
+              key: "E-Library",
+              icon: <SiLibrarything className="fs-4" />,
+              label: "E-Library",
+              children: [
+                {
+                  key: "Add Book",
+                  icon: <BiBookAdd className="fs-4" />,
+                  label: "Add Books",
+                },
+
+                {
+                  key: "View Book",
+                  icon: <BiBookAdd className="fs-4" />,
+                  label: "View Books",
+                },
+
+              ],
+            },
+            
+            //e-Library end
+
+            //E-learning start
+
+            {
+              key: "E-Learning",
+              icon: <BsCollectionFill className="fs-4" />,
+              label: "E-Learning",
+              children: [
+                {
+                  key: "Add Video",
+                  icon: <RiVideoAddFill className="fs-4" />,
+                  label: "Add Videos",
+                },
+
+                {
+                  key: "View Video",
+                  icon: <RiVideoAddFill className="fs-4" />,
+                  label: "View Videos",
+                },
+
+              ],
+            },
+
+            //e-learning end
+
+            
+            //catalog start
             {
               key: "Catalog",
               icon: <AiOutlineShoppingCart className="fs-4" />,
@@ -102,6 +273,12 @@ const MainLayout = () => {
                 },
               ],
             },
+
+            //end of catalog
+
+
+
+            
             {
               key: "orders",
               icon: <FaClipboardList className="fs-4" />,
